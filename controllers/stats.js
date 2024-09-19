@@ -78,6 +78,8 @@ export const getDashboardStats = TryCatch(async (req, res, next) => {
       },
     });
 
+
+    //
     const latestTransactionsPromise = Order.find({})
       .select(["orderItems", "discount", "total", "status"])
       .limit(4);
@@ -147,7 +149,7 @@ export const getDashboardStats = TryCatch(async (req, res, next) => {
       order: allOrders.length,
     };
 
-    const orderMonthCounts = new Array(6).fill(0);
+    const orderMonthCounts = new Array(6).fill(0);     
     const orderMonthyRevenue = new Array(6).fill(0);
 //---
     lastSixMonthOrders.forEach((order) => {
